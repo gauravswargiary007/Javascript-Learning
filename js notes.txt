@@ -1,0 +1,488 @@
+console.log:		console.log is used to log(print) a message to the console.
+			e.g. -> console.log("hello world");
+
+Variables in JS:	Variables are containers for data. You can declare variables using var, let, or const.
+			e.g. -> Name = "Tony Stark";
+				designation = "iron Man";
+				movies = "3";
+
+				console.log(Name, designation, movies);
+				this is not the correct way.
+
+			e.g. -> let Name = "Tony Stark";
+				const designation = "iron Man";
+				let movies = "3";
+
+				console.log(Name, designation, movies);
+				this is the correct way to declare variable
+
+types:			1. var :	Variable can be re-declared & updated. A global scope variable. (should not be used now a days)
+
+			2. let :	Variable cannot be re-declared but can be updated within the block. A block scope variable.
+					e.g. -> let age = 50;		here variable is declared once
+				    		age = 20; 		and we are updating it
+				    		age = 45; 		again updating
+		
+					e.g. -> let age = 50; variable is declared
+						let age = 20; this redeclaration is not allowed in let
+ 
+					e.g. -> suppose we define a variable 'x' and then we do not initialize it. When we log(print) the variable it is 					going to show "undefined". i.e. memory is assigned but the variable is not defined yet.
+	 
+			3. const : 	Variable cannot be re-declared or updated once decared. A block scope variable. 
+					e.g. ->	const PI = 3.14;
+						const myName = "don"; 
+
+						const PI = 70.982;		// this will be an error
+						const myName = "xingho";	// this will be an error
+
+						console.log(PI, myName);
+
+					e.g. -> suppose we declare a const 'x' and then we do not initialize it then it will show error at compile time as 					const cannot be undefined.
+					
+N.B. : console.table([variableName1, variableName2, ..]); gives all the variables in tabular form
+
+Variable Rules:		1. Variable names are case sensitive; “a” & “A” is different.
+ 			2. Only letters, digits, underscore( _ ) and $ is allowed. (not even space)
+ 			3. Only a letter, underscore( _ ) or $ should be 1st character.
+ 			4. Reserved words cannot be variable names.
+
+N.B. : "use strict" --> uses the newer verson syntax, function, modules for the javascript
+
+Data Types:		
+			1. Primitive datatypes:
+				a. Number:	Represents numbers.
+						Examples: let x = 5, let x = 3.14, let x = -10.
+
+				b. BigInt:	A type that can store very large numbers that are too big for regular numbers.
+						Example: let y = BigInt("116626266263778886423211");
+
+				c. String:	Represents text (a sequence of characters).
+						Examples: "hello", 'world', 'JavaScript'.
+
+				d. Boolean:	Represents true or false values.
+						Examples: true, false.
+	
+				e. Undefined:	A variable that is declared but not assigned a value is undefined.
+						Example:	let x;
+								console.log(x);  // undefined
+
+				f. Null:	Represents an empty or "null" value. It's like saying there is nothing.
+						Example:	let y = null;
+								console.log(y);	// null
+
+				g. Symbol:	Represents a unique identifier (used for things like keys in objects).
+						Example:	let sym = Symbol("hello");
+
+N.B. : console.log(typeof value) --> gives us the datatype of values
+
+			2. Non Primitive datatypes:
+				a. objects:	Objects are collections of key-value pairs, where the keys are strings (or symbols) and the values can be of 						any data type (including other objects or arrays).
+						Example:	const symbols = {
+									yt: "youtube",
+									ig: "instagram",
+									fb: "facebook",
+									x: "twitter",
+									wa: "whatsapp",
+								};
+	
+				a.1. arrays:	Arrays are ordered collections of values (elements) that can be of any data type, including other arrays or 						objects.
+
+Conversion in Datatypes:
+
+strings:			In JavaScript, strings are sequences of characters used to represent text. They are one of the primitive data types and can 				be created using single quotes ('), double quotes ("), or backticks (`).
+
+creating a string:		let str1 = "Hello, World!"; // Double quotes
+				let str2 = 'JavaScript is fun!'; // Single quotes
+				let str3 = `Template literals`; // Backticks
+
+properties in string:		1. String Length:		gives the length of the string.
+								if any space is there it is also counted
+								e.g.	let text = "JavaScript";
+									console.log(text.length); // 10
+
+				2. Accessing Characters:	helps us to access the charater at specific index
+								e.g.	let text = "tonystark";
+									console.log
+
+				3. templet literals:		Template literals are a feature in JavaScript that allows for easier string manipulation.
+								syntax --> ${variable.key}
+								e.g.	const object = {
+										item: "pen";
+										price: 10,
+									};
+									let output = `the cost of the ${object.item} is ${object.orice} rupees`;
+								** String interpolation is the process of embedding expressions inside string literals using 								template literals. 
+								It allows you to insert variables, expressions, and function calls into strings dynamically.
+
+				4. escape charater:		"\n" is an escape charecter in js that is used to create new line inside a string. 
+								"\t" gives tab inside the string.
+								escape charecter is counted as single charecter.
+
+methods in string:		- methods donot change the original string that is in the memory rather it creates a new string with a new value.					- In js strings are immutable because immutability helps save memory by reusing the same string in memory instead of 					  creating duplicates.
+				- can be applied in the console directly or by creating a new variable and storing the new value.		
+
+				1. str_name.toUpperCase() -> Converts to uppercase
+							e.g. 	let str1 = "Tony Stark";
+								let newstr1 = str1.toUpperCase();	method is used and is stored in a variable rather 													than directly applying it in the console
+								console.log(str1);
+								console.log(newstr1);
+				
+
+
+				2. str_name.trim()	 -> Removes spaces from both ends.
+				3. str_name.trimStart()	 -> Removes spaces from the start.
+				4. str_name.trimEnd()	 -> Removes spaces from the end.
+				5. slice(start, end)	 -> Extracts part of a string (supports negatives). and the ending index is excluded
+							e.g. let str = "xingho";
+							     console.log(str.slice(0, 5)); // output xingh "o" will be excluded as it is 5th index
+				6. .concat()		 -> concatinates two string.
+							e.g. let str1 = "hel";
+							     let str2 = "lo";
+								console.log(str1.concat(str2));	// str2 is concatinated with str1.
+				7. .replace()		 -> replaces the value in the string only once.
+							e.g. let str7 = "hello tony stark";
+							     let newstr7 = str7.replace("tony stark", "don");
+							     console.log(newstr7);
+				8. .replaceAll()	 -> all the matching values in the string will be replaced
+
+
+array:				arrays are used to store multiple values in a single variable.
+				** arrays are mutable in js as arrays are special type of objects and objects in JavaScript are stored by reference
+
+Creating Arrays:		let fruits = ["Apple", "Banana", "Cherry"];
+				let num = [1, 2, 3 ,4, 5 ,6];
+
+array properties:		1. array_name.length		Returns the number of elements in the array
+								e.g.	let num = [1, 2, 3 ,4, 5 ,6];
+									console.log(num.length);	// output	5
+
+				2. array_name.isArray()		Checks if a value is an array.
+
+				3. toString()	Converts an array to a string
+								e.g.	let cities = ["assam", "delhi", "hyderabad", "mumbai", "sikkim", "arunachal"];
+									console.log(cities.toString());
+
+				4. valueOf()	Returns the array itself
+
+array methods:
+
+
+
+objects in javascript:		fundamental datatypes used to store collection of data and more complex entities
+
+fuctions:
+
+Scope:				scope refers to the current context of execution, which determines the accessibility (visibility) of variables, functions, 				and objects.
+
+				1. Global Scope:	Variables declared outside any function or block are in the global scope.
+							Accessible anywhere in the code.
+
+							e.g.	let globalVariable = "i am global variable";    // declared outside any function
+								function test() {
+								    console.log(globalVariable);        // accessible here inside a function
+								}
+								test();
+
+				2. Function Scope:	Variables declared inside a function are only accessible within that function.
+							Created using var, let, or const.
+
+							e.g.	function myFunction() {
+								    let funcVar = "this is function variable";
+								    console.log(funcVar);       // only accessible within the scope of the function
+								}
+								myFunction();
+								console.log(funcVar);           // not accessible from outside the function
+
+				3. Block Scope (ES6+):	Variables declared with let or const inside {} are block-scoped.
+							Acessible only within the blocks {}
+
+							e.g.	{
+								    let blockVar = "Inside block";
+								    const blockConst = "Also inside block";
+								    console.log(blockVar);
+								    console.log(blockConst);
+								}
+
+*** nested scope:	e.g.	function one() {
+				    const username = "tony Stark";
+				    function two() {
+				        const website = "youtube";
+				        console.log(username);      // accesseible as username is globle within the function
+				    }
+				    two();
+				}
+				one(); 
+
+This and arrow function:	# this is a special keyword in JavaScript that refers to the object that is executing the current function.
+				e.g. // this function
+					const user = {
+					    username: "tony stark",
+					    price: 999,
+					    welcomeMessage: function() {
+					        console.log(`${this.username}, welcome to the website`);        // here the user name is set to tony stark
+					        console.log(this);  // give the current context and the updated context i.e username changed to gaurav
+					    }
+					}
+					user.welcomeMessage();      // username tony stark will print
+					user.username = "gaurav"
+					user.welcomeMessage();      // will give the name gaurav
+					console.log(this);  // gives window
+
+
+				# Arrow functions are a shorter syntax for writing functions, introduced in ES6 (ECMAScript 2015). 
+				  Arrow functions don’t have their own this.
+					syntax	-> ()=> { function body }
+						-> const function_name = ()=> { function body }
+
+					e.g.	const myFunction3 = (num1, num2) =>{
+						    return num1 + num2
+						}
+						console.log(myFunction3(1,5));
+
+				# Arrow implicit return -> return keyword is not used
+					e.g.	const myFunction4 = (num1, num2) => num1 + num2
+						 console.log(myFunction4(9,5));
+
+
+operators:	operators are used to perform different types of mathematical and logical computations.
+		1. Arithmetic operator: Arithmetic Operators are used to perform arithmetic on numbers:
+			+	Addition
+			-	Subtraction
+			*	Multiplication
+			**	Exponentiation (ES2016)
+			/	Division
+			%	Modulus (Division Remainder)
+			
+		2. Unary operator: Increment and Decrement of the operand occurs
+			a++	post increment of a.
+			++a	pre increment of a
+			a--	post decrement of a
+			--a	pre decrement of a 
+
+		3. The Assignment Operator: Assignment operators assign values to JavaScript variables.
+			=	x = y	x = y
+			+=	x += y	x = x + y
+			-=	x -= y	x = x - y
+			*=	x *= y	x = x * y
+			/=	x /= y	x = x / y
+			%=	x %= y	x = x % y
+			**=	x **= y	x = x ** y
+
+		4. The Comparison Operator: comparison operators are used to compare values. They return a Boolean (true or false) based on the comparison 						result.
+
+			a. Equality Operators
+				Operator	Description			Example				Result
+				==		Loose equality 		(checks value only)	"5" == 5	true
+				===		Strict equality 	(checks value and type)	"5" === 5	false
+				!=		Loose inequality	(checks value only)	"5" != 5	false
+				!==		Strict inequality 	(checks value and type)	"5" !== 5	true
+
+			b.  Relational Operators
+				Operator	Description			Example		Result
+				>		Greater than			10 > 5		true
+				<		Less than			10 < 5		false
+				>=		Greater than or equal to	10 >= 10	true
+				<=		Less than or equal to		5 <= 10		true
+
+		5. logical operator: Logical operators are used to combine multiple conditions and return a Boolean (true or false) based on the evaluation.
+				&&	logical AND	Returns true if both expressions are true.
+				||	logical OR	Returns true if at least one expression is true.
+				!	logical NOT	Reverses the boolean value of an expression.
+
+
+conditional statements:		Types of Conditional Statements in JavaScript
+				1. if statement
+				2. if...else statement
+				3. if...else if...else ladder
+				4. Ternary operator (? :)
+				5. switch statement
+
+loops:				1. For Loop
+				2. While Loop
+				3. Do...While Loop
+				4. For...In Loop:	majorly used for iterating in objects.
+							e.g. 	const names = {
+								    yt: "youtube",
+								    fb: "faxcebook",
+								    ig: "instagram",
+								};
+								for(const n in names) {
+    									console.log(n + ": " + names[n]);
+								}
+ 
+				5. For...Of Loop:	majorly used for itterating in arrays
+							syntax --> for( const ITTERATOR of OBJECT) {}
+							e.g. 	const media = ["youtube", "facebook", "instagram", "whatsapp", "netflix"];
+							     	for(const m of media) {
+    							     		console.log(m);
+							     	}
+Note Below	***for of loop is not itterable in objects
+		***for in loop is itterable in arrays tough it is used for objects		
+
+				6. Break and Continue:
+
+
+
+high order array loops		1. forEach Loop:	const colors = ["red", "blue", "green", "yellow"];
+							colors.forEach(function(color) {
+  								console.log(color);
+								});
+				
+				more in forEach --> gives the indices and acces to the items in array
+				colors.forEach(function(itteratorName, index, array){
+					console.log(itteratorName, index, array);
+					});
+
+				forEach in array function:	const array = ["html", "css", "js", "react", "java", "springboot"];
+								array.forEach((itteratorName) => {
+    									console.log(itteratorName);
+									});
+
+				objects in array using forEach loop:	const newArray = [
+									    {
+									        l1:"html",
+									        l2:"css"
+									    },
+									    {
+									        l1:"javascript",
+									        l2:"java"
+									    },
+									    {
+									        l1:"springboot",
+									        l2:"mongoDB"
+									    }
+										];
+
+										newArray.forEach(function(itterator) {
+									    	console.log(itterator.l1);
+									});
+
+
+
+				2. Map:			Map objects holds key-value pairs and remembers the original order where as object donot remember 							the order
+							Maps donot have unique values
+
+							const myMap = new Map{}		// declaration of map syntax -> new Map()
+							myMap.set('IN', "india')	// value is set to Map syntax -> map_name.set('key', 'value')
+							myMap.set('USA', 'united state of america')
+							myMap.set('FR', ''France)
+							console.log(myMap);
+
+							for(const key of map) {		// gives an array structure
+    								console.log(key);
+								
+
+							// above gives an array structure so destructure of array
+							for(const [key, value] of map) {
+							    console.log(key, value);
+							}
+
+Note below	*** forEach loop doest work in objects directly we use another function to acces the object
+		*** forEach doesnot return any value, yes it prints a value but doent return anything
+		*** Map objects holds key-value pairs and remembers the original order where as object donot remember the order
+		*** not itterable using for in loop
+		*** map uses forEach loop directly
+		*** itterable using for of loop but gives array structure there for destructure is required look example
+		*** another function can also be passed on in the forEach loop
+
+
+
+Document Object Model:		The DOM (Document Object Model) is a programming interface for web documents. It represents the structure of a document as a 				tree of objects. Each element, attribute, and piece of text becomes a node.
+entry point:	console.log(document); // Root of the DOM
+
+DOM (Document Object Model) provides a wide range of methods that allow you to access, traverse, and manipulate HTML elements in a web page using JavaScript. 
+
+Nodes:
+Document Node: document
+Element Nodes: HTML elements like <div>, <p>, etc.
+Text Nodes: Inside tags: Hello in <p>Hello</p>
+Attribute Nodes: Represent HTML attributes like id, class
+Comment Nodes: Created from <!-- comments -->
+
+
+Selection Methods – Finding Elements
+
+	Method							Description
+document.getElementById('id')			Returns a single element with the given ID.
+document.getElementsByClassName(className)	Returns a live HTMLCollection of elements with the given class.
+document.getElementsByTagName(tagName)		Returns a live HTMLCollection of elements with the given tag.
+document.querySelector(selector)	Returns the first element that matches a CSS selector.
+document.querySelectorAll(selector)	Returns a static NodeList of all matching elements.
+
+document.getElementById('title').id						returns the value of the id
+document.getElementById('title').className					returns the name of teh class in which the id is present
+document.getElementById('title').getAttribute('attribute_name')			returns the attribute of the documnet
+document.getElementById('title').setAttribute('attribute', 'new_value')		sets(overrides) the new attribute name to the old one
+
+
+say:
+
+<html>
+<head> <title>learning Dom</title> </head>
+<body>
+<div class = 'parent'>
+<h1 id = "title" class = "heading">Learning DOM with Chai aur Code</h1>
+</div> 
+</body>
+</html>
+
+in console:
+const test = document.getElementById(title);		stored the id element in test
+title.style.backgroundcolor = "blue";			using the test element we are using the inline css
+title.style.borderRadius = "20px";
+
+manipulattion
+	Method			Description
+element.innerHTML	Gets teh whole HTML content.
+element.textContent	gets the whole content of the element.
+element.innerText	gets only the content that to be displayed.
+
+document.querySelector(selector)	Returns the first element that matches a selector.
+**** uses the # to search the id		-->	document.querySelector('#title')
+**** uses the . to search a class		-->	document.querySelector('.heading')
+	
+document.querySelectorAll(selector)	Returns a NodeList of all matching elements.
+cannot be done as querySelector() for exMPLE
+document.querySelectorAll('li') --> will give all the list in the document
+const test = document.querySelectorAll('li')
+test[index number].style.color = "blue" will change the color of the list of the given index
+
+convert html collection to array to modify
+Array.from(element)
+to add style
+element.forEach(function(k) {
+    k.style.color = "yellow" 	
+})
+
+console.log(parent.firstElementChild)	-->	gives the first element of the parent class
+console.log(parent.lastElementChild)	-->	gives the last element of the parent class
+console.log(dayone.parentElement)	-->	gives the parent element of the class
+console.log(dayone.nextElementSibling)	-->	gives the next element
+console.log(element.childNodes)		-->	Get all child nodes (includes text(enter), comments).	as dom is a tree strusture there fore gives all
+				
+creating an element in the document 
+const div = document.createElement('div')	-->	creats an element
+div.className = "main"				-->	gives class name main
+div.id = Math.round(Math.random() * 5)		-->	gives id
+div.setAttribute("title", "generated-title")	-->	sets an attribute title of name generated-attribute 
+div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    div.style.borderRadius = "15px"
+const text = document.createTextNode("chai aur code")		-->	text node is created and is stored in text
+div.appendChild(text)						-->	node is appended i.e attached to the div		
+document.body.appendChild(div)					-->	new element div is attached to the body of the document
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
