@@ -5,9 +5,10 @@ let big = BigInt("222222222222636366363611882799823653");
 let String = "Xingho";
 let boolean1 = "true";
 let boolean2 = "false"
-let z;
-let x = null;
+let z;  // will give undefined: A variable that is declared but not assigned a value is undefined.
+let x = null;   
 let sym = Symbol("hello!");
+
 const objectStudent = {
     name: "tony stark",
     age: 25,

@@ -4,12 +4,14 @@ console.log("type of score1: " + typeof score1);                    // number da
 let score2 = "33";
 console.log("type of score2: " + typeof score2);                    // string datatype
 
-let valueInNumber1 = Number(score2);                                // this guarentes that the datatype of score2 which is string will be number
-console.log("type of valueInNumber1: " + typeof valueInNumber1);    // number datatype
-console.log(valueInNumber1);                                        // 33 will be shown
+        // explicit conversions
+
+let valueInNumber1 = Number(score2);                                // this(Number) guarentes that the datatype of score2 which is string will be number
+console.log("type of valueInNumber1: " + typeof valueInNumber1);    // number datatype i.e score2 is converted from string to number
+console.log(valueInNumber1);                                        // 33 will be shown as number
 
 // conversion to Number
-// string to number --> NaN
+// string to number --> NaN since string cannot be converted into numbers
 let score3 = "77abc";
 console.log("type of score3: " + typeof score3);                    // string datatype
 let valueInNumber2 = Number(score3);                                // this guarentes that the datatype of score3 which is a string will be number
@@ -39,7 +41,7 @@ console.log(valueInNumber5);                                        // 1 as true
 
 // number is easily converted
 // "33abc" => gives NaN
-// "true" => coverts to 1; "false" => 0
+// "true" => coverts to 1; "false" => converts to 0
 
 
 // conversion to Boolean
@@ -93,20 +95,38 @@ console.log(stringNumber2);                                                 // 7
 console.log("type of stringNumber2: " + typeof stringNumber2);              // String
 
 
-// operations
+// 1. Implicit Conversion to String. Occurs when you use the + operator with a string.
+console.log("1" + 2);       // "text" + value = value --> string
+console.log(1 + "2");       // value + "text" = value --> string
+console.log("1" + 2 + 2);   // "text" + value + value --> string (after the "text" the values will not be added it will all converted to string)   
+console.log(1 + 2 + "2");   // value + value + "text" --> string (before the "text" the values will be added and then converted to string)
 
-// let str1 = "abcd";
-// let str2 = "efgh";
+
+// 2. Implicit Conversion to Number. Happens when operators expect numbers: -, *, /, %, comparison operators.
+console.log("5" - 2);
+console.log("5" - "2");
+console.log(2 - "5");
+console.log("5" * 2);
+console.log("5" * "2");
+console.log(5 * "2");
+console.log("5" / 2);
+console.log("5" / "2");
+console.log(5 / "2");
+console.log("5" % 2);
+console.log("5" % "2");
+console.log(5 % "2");
+console.log("abc" - 1);  // NaN (string cannot convert to number)
+// NB: JS converts "value" to number if -, *, /, %, comparison operators used. and string cannot convert to number
 
 
+// 3. Implicit Conversion to Boolean. This happens when a value is used in a boolean context:
+// In if statements
+if ("") console.log("Yes"); // Won’t run → "" is false
+if ("hello") console.log("Yes"); // Runs → "hello" is true
 
-// data and time
+// In logical operators
+console.log(0 || "Hello"); // "Hello"  (0 becomes false)
+console.log(1 && "Hi");    // "Hi"     (1 becomes true)
 
-// let myDate = new Date();    // object of date is created
-// console.log(myDate.toDateString());
-// console.log(myDate.toISOString());
-// console.log(typeof myDate);
-
-// functions
 
 

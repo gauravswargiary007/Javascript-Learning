@@ -48,8 +48,14 @@ Variable Rules:		1. Variable names are case sensitive; “a” & “A” is diff
 
 N.B. : "use strict" --> uses the newer verson syntax, function, modules for the javascript
 
-Data Types:		
+Data Types:		datatypes are classified on the basis of how we store them in memory and how we access them
 			1. Primitive datatypes:
+						They are:
+						1. Immutable (cannot be changed)
+						2. Stored directly in stack memory
+						3. Copied by value
+						4. Fast and lightweight
+
 				a. Number:	Represents numbers.
 						Examples: let x = 5, let x = 3.14, let x = -10.
 
@@ -66,7 +72,7 @@ Data Types:
 						Example:	let x;
 								console.log(x);  // undefined
 
-				f. Null:	Represents an empty or "null" value. It's like saying there is nothing.
+				f. Null:	Represents an empty or "null" value. It's like saying there is nothing. Type of Null is object
 						Example:	let y = null;
 								console.log(y);	// null
 
@@ -75,8 +81,9 @@ Data Types:
 
 N.B. : console.log(typeof value) --> gives us the datatype of values
 
-			2. Non Primitive datatypes:
-				a. objects:	Objects are collections of key-value pairs, where the keys are strings (or symbols) and the values can be of 						any data type (including other objects or arrays).
+			2. Non Primitive datatypes:	
+						Non-primitive data types are mutable, stored in heap memory, and accessed by reference (not by 							value).
+				a. objects:	Objects are collections of key-value pairs, where the keys are strings (or symbols) and the 							values can be of any data type (including other objects or arrays).
 						Example:	const symbols = {
 									yt: "youtube",
 									ig: "instagram",
@@ -85,9 +92,170 @@ N.B. : console.log(typeof value) --> gives us the datatype of values
 									wa: "whatsapp",
 								};
 	
-				a.1. arrays:	Arrays are ordered collections of values (elements) that can be of any data type, including other arrays or 						objects.
+				a.1. arrays:	Arrays are ordered collections of values (elements) that can be of any data type, including 							other arrays or objects.
+
+
 
 Conversion in Datatypes:
+1. Implicit Conversion (Automatic):	Implicit type conversion in JavaScript (also called type coercion) happens automatically when JS tries 						to perform an operation on values of different data types. JavaScript automatically converts one data 						type to another when needed.
+
+a. Implicit Conversion to String. Occurs when you use the + operator with a string.
+console.log("1" + 2);       // "text" + value = value --> string
+console.log(1 + "2");       // value + "text" = value --> string
+console.log("1" + 2 + 2);   // "text" + value + value --> string (after the "text" the values will not be added it will all converted to string)   
+console.log(1 + 2 + "2");   // value + value + "text" --> string (before the "text" the values will be added and then converted to string)
+
+
+b. Implicit Conversion to Number. Happens when operators expect numbers: -, *, /, %, comparison operators.
+console.log("5" - 2);
+console.log("5" - "2");
+console.log(2 - "5");
+console.log("5" * 2);
+console.log("5" * "2");
+console.log(5 * "2");
+console.log("5" / 2);
+console.log("5" / "2");
+console.log(5 / "2");
+console.log("5" % 2);
+console.log("5" % "2");
+console.log(5 % "2");
+console.log("abc" - 1);  // NaN (string cannot convert to number)
+
+***NB: JS converts "value" to number if -, *, /, %, comparison operators used. and string cannot convert to number
+
+c. Implicit Conversion to Boolean. This happens when a value is used in a boolean context:
+	c.1. In if statements:		if ("") console.log("Yes"); // Won’t run → "" is false
+					if ("hello") console.log("Yes"); // Runs → "hello" is true
+
+	c.2. In logical operators:	console.log(0 || "Hello"); // "Hello"  (0 becomes false)
+					console.log(1 && "Hi");    // "Hi"     (1 becomes true)
+
+Summary of Implicit Conversion		Operation			Conversion
+					"text" + value			value → string
+					value - value, *, /, %		values → numbers
+					if (value)			value → boolean
+					== (loose equality)		values converted to common type
+
+2. Explicit Conversion (Manual): 
+
+let valueInNumber1 = Number(score2);                                // this(Number) guarentes that the datatype of score2 which is string will be number
+console.log("type of valueInNumber1: " + typeof valueInNumber1);    // number datatype i.e score2 is converted from string to number
+console.log(valueInNumber1);                                        // 33 will be shown as number
+
+a. conversion to Number
+a.1. string to number --> NaN since string cannot be converted into numbers
+let score3 = "77abc";
+console.log("type of score3: " + typeof score3);                    // string datatype
+let valueInNumber2 = Number(score3);                                // this guarentes that the datatype of score3 which is a string will be number
+console.log("type of valueInNumber2: " + typeof valueInNumber2);    // datatype will be Number
+console.log(valueInNumber2);                                        // NaN i.e not a number as the value is string but we converted it to number
+
+a.2. null to number --> 0
+let score4 = null;                                                  
+console.log("typeof score4: " + typeof score4);                     // object datatype
+let valueInNumber3 = Number(score4)                                 // this guarentes that the datatype of score2 which is string will be number
+console.log("type of valueInNumber3: " + typeof valueInNumber3);    // number datatype
+console.log(valueInNumber3);                                        // 0
+
+a.3. undefined to number --> NaN
+let score5 = undefined;
+console.log("typeof score5: " + typeof score5);                     // undefined datatype
+let valueInNumber4 = Number(score5)                                 // this guarentes that the datatype of score2 which is string will be number
+console.log("type of valueInNumber4: " + typeof valueInNumber4);    // number datatype
+console.log(valueInNumber4);                                        // NaN as the value is undefined and we converted it to number
+
+a.4. boolean to number --> 1 or 0
+let score6 = true;
+console.log("typeof score6: " + typeof score6);                     // boolean datatype
+let valueInNumber5 = Number(score6)                                 // this guarentes that the datatype of score2 which is string will be number
+console.log("type of valueInNumber5: " + typeof valueInNumber5);    // number datatype
+console.log(valueInNumber5);                                        // 1 as true will be 0 if false
+
+// number is easily converted
+// "33abc" => gives NaN
+// "true" => coverts to 1; "false" => converts to 0
+
+
+2. conversion to Boolean
+let isLoggedIn1 = 1;
+let booleanIsLoggedIn1 = Boolean(isLoggedIn1);                               // this guarentes that the datatype of isLoggedIn1 will be boolean
+console.log(booleanIsLoggedIn1);                                             // true
+console.log("type of BooleanIsLoggedIn1: " + typeof booleanIsLoggedIn1);     // boolean
+
+let isLoggedIn2 = 0;
+let booleanIsLoggedIn2 = Boolean(isLoggedIn2);                               // this guarentes that the datatype of isLoggedIn2 will be boolean
+console.log(booleanIsLoggedIn2);                                             // False
+console.log("type of BooleanIsLoggedIn2: " + typeof booleanIsLoggedIn2);     // boolean
+
+// if empty to boolean --> false
+let isLoggedIn3 = "";
+let booleanIsLoggedIn3 = Boolean(isLoggedIn3);                               // this guarentes that the datatype of isLoggedIn3 will be boolean
+console.log(booleanIsLoggedIn3);                                             // false
+console.log("type of BooleanIsLoggedIn3: " + typeof booleanIsLoggedIn3);     // boolean
+
+// if string to boolean --> true
+let isLoggedIn4 = "gaurav";
+let booleanIsLoggedIn4 = Boolean(isLoggedIn4);                               // this guarentes that the datatype of isLoggedIn4 will be boolean
+console.log(booleanIsLoggedIn4);                                             // true
+console.log("type of BooleanIsLoggedIn4: " + typeof booleanIsLoggedIn4);     // boolean
+
+// null to boolean --> false
+let isLoggedIn5 = null;
+let booleanIsLoggedIn5 = Boolean(isLoggedIn5);                               // this guarentes that the datatype of isLoggedIn5 will be boolean
+console.log(booleanIsLoggedIn5);                                             // false
+console.log("type of BooleanIsLoggedIn5: " + typeof booleanIsLoggedIn5);     // boolean
+
+let isLoggedIn6 = undefined;
+let booleanIsLoggedIn6 = Boolean(isLoggedIn6);                               // this guarentes that the datatype of isLoggedIn5 will be boolean
+console.log(booleanIsLoggedIn6);                                             // false
+console.log("type of BooleanIsLoggedIn6: " + typeof booleanIsLoggedIn6);     // boolean
+
+// 1 => true, 0 => false
+// "" => false
+// "string" = true
+
+
+3. conversion to String
+let someNumber = 76;
+let stringNumber = String(someNumber)                                       // this guarentes that the datatype of someNmber will be String
+console.log(stringNumber);                                                  // 76 but string    
+console.log("type of stringNumber: " + typeof stringNumber);                // String
+
+let someNumber2 = "";
+let stringNumber2 = String(someNumber2)                                     // this guarentes that the datatype of someNmber will be String
+console.log(stringNumber2);                                                 // 76 but string    
+console.log("type of stringNumber2: " + typeof stringNumber2);              // String
+
+
+Memory in Js:
+1. Stack Memory (Fast memory):	Stack stores ONLY a reference(address / pointer) of the object when it's an object but stores the actual value 					only for primitives. Used for:
+				1. primitive data types(number, string, boolean, null, undefined, symbol, bigint)
+				2. Function execution context
+				3. Local variables
+
+				Example:
+				let user = { name: "Loard" };	// stores the reference pointing towards the object user
+				let x = 10;   			// stored directly in stack
+				let y = "Lord"; 		// stored directly in stack
+
+
+2. Heap Memory(Big memory area): 	Heap stores the object itself i.e stores the actual values of object.Therefore, if two variables share 						the same reference, modifying the object through one variable will affect the same object in the heap, 						and the change is visible to all references.
+				   	Used for:
+					Non-primitive types(Object, Array, Function)
+
+				Example:
+				let user = { name: "Lord" };	// stores {name: "lord"} in heap and the user is stored in stack referencing to 								the object in heap
+
+📌 Heap stores the object itself, but stack stores a reference (pointer) to that object.
+
+✦ The object { name: "Lord" } is in the heap
+✦ The variable user holds only a reference of the object in the stack
+✦ More than one reference variable can point to the one same object. If any one reference variable changes the object it will be changed for all the reference variables pointing towards that same object.
+
+
+
+
+
 
 strings:			In JavaScript, strings are sequences of characters used to represent text. They are one of the primitive data types and can 				be created using single quotes ('), double quotes ("), or backticks (`).
 
