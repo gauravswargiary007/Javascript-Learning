@@ -1,3 +1,5 @@
+//************* CREATING STRING************
+
 let str1 = "tony stark";        // creating string with ""
 let str2 = `avengers`;          // creating string with ``
 
@@ -6,6 +8,9 @@ console.log(typeof "str1");
 
 console.log(str2);
 console.log(typeof "str2");
+
+const person = new String("Gaurav");
+console.log(person);
 
 //  properties in strings
 
@@ -17,7 +22,12 @@ console.log(str2.length);
 console.log(str1[3]);       
 console.log(str2[7]);
 
+//string.indexOf('char') to know the index of the character
+let text = "happybirthday";
+console.log(text.indexOf('p'));
+
 // templet literals
+console.log(`Everyone knows ${str1} is an ${str2}`);
 const object = {
     item: "pen",
     price: 10,
@@ -28,4 +38,4 @@ console.log(str);
 
 // string concatination
 console.log(str1 + " " + str2); // using +
-console.log(`${str1} ${str2}`);
+console.log(`${str1} ${str2}`); // using string interpolation

@@ -40,3 +40,6 @@ let str8 = "welcome xingho";
 let newstr8 = str8.charAt(9);
 console.log(str8);
 console.log(newstr8);
+
+// to find if it includes the value of not
+console.log(str8.includes('c'));

@@ -1,44 +1,31 @@
-let value = 3;
-let negvalue = -value;
-console.log([value, negvalue]);
+/* **************** BUILT IN METHODS FOR NUMBER OBJECTS ********************** 
 
-// Operation
-console.log(2 + 2);
-console.log(2 - 2);
-console.log(2 * 2);
-console.log(2 ** 3);        // power
-console.log(2 / 2);
-console.log(7 % 5);
+.toString()	Number	Converts the number to string
+.toFixed()	Number	Formats number with fixed decimal digits
+.valueOf()	Number	Returns the primitive value inside the Number object
+.toPrecision()	Number	Formats number to a specified precision
+.toExponential()	Number	Converts number to exponential format
 
-// 1. Implicit Conversion to String. Occurs when you use the + operator with a string.
-console.log("1" + 2);       // "text" + value = value --> string
-console.log(1 + "2");       // value + "text" = value --> string
-console.log("1" + 2 + 2);   // "text" + value + value --> string (after the "text" the values will not be added it will all converted to string)   
-console.log(1 + 2 + "2");   // value + value + "text" --> string (before the "text" the values will be added and then converted to string)
+*/
 
+const num = new Number(7235.657765);
+console.log(num);
+console.log(typeof(num));
 
-// 2. Implicit Conversion to Number. Happens when operators expect numbers: -, *, /, %, comparison operators.
-console.log("5" - 2);
-console.log("5" - "2");
-console.log(2 - "5");
-console.log("5" * 2);
-console.log("5" * "2");
-console.log(5 * "2");
-console.log("5" / 2);
-console.log("5" / "2");
-console.log(5 / "2");
-console.log("5" % 2);
-console.log("5" % "2");
-console.log(5 % "2");
-console.log("abc" - 1);  // NaN (string cannot convert to number)
-// NB: JS converts "value" to number if -, *, /, %, comparison operators used. and string cannot convert to number
+console.log(num.toString());        
+console.log(num.toFixed(2));
+console.log(num.valueOf());
+console.log(num.toPrecision(5));            // 7235.7
+console.log(num.toPrecision(4));            // 7236
+console.log(num.toPrecision(3));            // 7.24e+3  7.23 are precision value and  e+3 is exponential
+
+const num2 = new Number(33456780);
+console.log(num2.toExponential());
 
 
-// 3. Implicit Conversion to Boolean. This happens when a value is used in a boolean context:
-// In if statements
-if ("") console.log("Yes"); // Won’t run → "" is false
-if ("hello") console.log("Yes"); // Runs → "hello" is true
+/* ************************* MATH ******************* */
 
-// In logical operators
-console.log(0 || "Hello"); // "Hello"  (0 becomes false)
-console.log(1 && "Hi");    // "Hi"     (1 becomes true)
+console.log(Math.abs(-4));          // Math.abs(-value) --> converts the negative value to positive and positive value keeps positive
+console.log(Math.round(23.567));    // Math.round(value) --> gives the roundoff value of the value
+console.log(Math.ceil(9.232));      // Math.ceil(value) --> takes the upper value i.e the ceilling value
+console.log(Math.floor(9.232));     // Math.floor(value) --> takes the lower value i.e the floor value

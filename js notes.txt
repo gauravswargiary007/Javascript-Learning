@@ -26,7 +26,7 @@ types:			1. var :	Variable can be re-declared & updated. A global scope variable
 					e.g. -> let age = 50; variable is declared
 						let age = 20; this redeclaration is not allowed in let
  
-					e.g. -> suppose we define a variable 'x' and then we do not initialize it. When we log(print) the variable it is 					going to show "undefined". i.e. memory is assigned but the variable is not defined yet.
+					e.g. -> suppose we define a variable 'x' and then we do not initialize it. When we log(print) the 							variable it is going to show "undefined". i.e. memory is assigned but the variable is not 							defined yet.
 	 
 			3. const : 	Variable cannot be re-declared or updated once decared. A block scope variable. 
 					e.g. ->	const PI = 3.14;
@@ -37,7 +37,7 @@ types:			1. var :	Variable can be re-declared & updated. A global scope variable
 
 						console.log(PI, myName);
 
-					e.g. -> suppose we declare a const 'x' and then we do not initialize it then it will show error at compile time as 					const cannot be undefined.
+					e.g. -> suppose we declare a const 'x' and then we do not initialize it then it will show error at 						compile time as const cannot be undefined.
 					
 N.B. : console.table([variableName1, variableName2, ..]); gives all the variables in tabular form
 
@@ -123,12 +123,12 @@ console.log("abc" - 1);  // NaN (string cannot convert to number)
 
 ***NB: JS converts "value" to number if -, *, /, %, comparison operators used. and string cannot convert to number
 
-c. Implicit Conversion to Boolean. This happens when a value is used in a boolean context:
-	c.1. In if statements:		if ("") console.log("Yes"); // Won’t run → "" is false
-					if ("hello") console.log("Yes"); // Runs → "hello" is true
+c. Implicit Conversion to Boolean:	This happens when a value is used in a boolean context:
+					c.1. In if statements:	if ("") console.log("Yes"); // Won’t run → "" is false
+								if ("hello") console.log("Yes"); // Runs → "hello" is true
 
-	c.2. In logical operators:	console.log(0 || "Hello"); // "Hello"  (0 becomes false)
-					console.log(1 && "Hi");    // "Hi"     (1 becomes true)
+					c.2. In logical operators:	console.log(0 || "Hello"); // "Hello"  (0 becomes false)
+									console.log(1 && "Hi");    // "Hi"     (1 becomes true)
 
 Summary of Implicit Conversion		Operation			Conversion
 					"text" + value			value → string
@@ -138,7 +138,7 @@ Summary of Implicit Conversion		Operation			Conversion
 
 2. Explicit Conversion (Manual): 
 
-let valueInNumber1 = Number(score2);                                // this(Number) guarentes that the datatype of score2 which is string will be number
+let valueInNumber1 = Number(score2);                                // this(Number) guarentes that the datatype of score2 which is string will 									    be number
 console.log("type of valueInNumber1: " + typeof valueInNumber1);    // number datatype i.e score2 is converted from string to number
 console.log(valueInNumber1);                                        // 33 will be shown as number
 
@@ -176,7 +176,7 @@ console.log(valueInNumber5);                                        // 1 as true
 // "true" => coverts to 1; "false" => converts to 0
 
 
-2. conversion to Boolean
+b. conversion to Boolean
 let isLoggedIn1 = 1;
 let booleanIsLoggedIn1 = Boolean(isLoggedIn1);                               // this guarentes that the datatype of isLoggedIn1 will be boolean
 console.log(booleanIsLoggedIn1);                                             // true
@@ -215,7 +215,7 @@ console.log("type of BooleanIsLoggedIn6: " + typeof booleanIsLoggedIn6);     // 
 // "string" = true
 
 
-3. conversion to String
+c. conversion to String
 let someNumber = 76;
 let stringNumber = String(someNumber)                                       // this guarentes that the datatype of someNmber will be String
 console.log(stringNumber);                                                  // 76 but string    
@@ -257,61 +257,69 @@ Memory in Js:
 
 
 
-strings:			In JavaScript, strings are sequences of characters used to represent text. They are one of the primitive data types and can 				be created using single quotes ('), double quotes ("), or backticks (`).
+strings:		In JavaScript, strings are sequences of characters used to represent text. They are one of the primitive data types and 			can be created using single quotes ('), double quotes ("), or backticks (`).
 
-creating a string:		let str1 = "Hello, World!"; // Double quotes
-				let str2 = 'JavaScript is fun!'; // Single quotes
-				let str3 = `Template literals`; // Backticks
+creating a string:	let str1 = "Hello, World!"; 		// Double quotes
+			let str2 = 'JavaScript is fun!'; 	// Single quotes
+			let str3 = `Template literals`; 	// Backticks
 
-properties in string:		1. String Length:		gives the length of the string.
-								if any space is there it is also counted
-								e.g.	let text = "JavaScript";
-									console.log(text.length); // 10
+properties in string:	1. String Length:		gives the length of the string.
+							if any space is there it is also counted
+							e.g.	let text = "Java Script";
+							console.log(text.length); // 11
 
-				2. Accessing Characters:	helps us to access the charater at specific index
-								e.g.	let text = "tonystark";
-									console.log
+			2. Accessing Characters:	helps us to access the charater at specific index
+							e.g.	let text = "tonystark";
+								console.log(text[4]);
 
-				3. templet literals:		Template literals are a feature in JavaScript that allows for easier string manipulation.
-								syntax --> ${variable.key}
-								e.g.	const object = {
-										item: "pen";
-										price: 10,
-									};
-									let output = `the cost of the ${object.item} is ${object.orice} rupees`;
-								** String interpolation is the process of embedding expressions inside string literals using 								template literals. 
-								It allows you to insert variables, expressions, and function calls into strings dynamically.
+			3. Accessing index:		heps us to acces the index of a character
+							e.g.	let text = "happybirthday";
+								console.log(indexOf(y));
 
-				4. escape charater:		"\n" is an escape charecter in js that is used to create new line inside a string. 
-								"\t" gives tab inside the string.
-								escape charecter is counted as single charecter.
+			4. templet literals:		Template literals are a feature in JavaScript that allows for easier string 									interpolation.
+							syntax --> ${variable.key}
+							e.g.	const object = {
+									item: "pen";
+									price: 10,
+								};
+								let output = `the cost of the ${object.item} is ${object.orice} rupees`;
 
-methods in string:		- methods donot change the original string that is in the memory rather it creates a new string with a new value.					- In js strings are immutable because immutability helps save memory by reusing the same string in memory instead of 					  creating duplicates.
-				- can be applied in the console directly or by creating a new variable and storing the new value.		
+** String interpolation is the process of embedding expressions inside string literals using template literals.	
+** It allows you to insert variables, expressions, and function calls into strings dynamically.
 
-				1. str_name.toUpperCase() -> Converts to uppercase
-							e.g. 	let str1 = "Tony Stark";
-								let newstr1 = str1.toUpperCase();	method is used and is stored in a variable rather 													than directly applying it in the console
-								console.log(str1);
-								console.log(newstr1);
+			4. escape charater:		"\n" is an escape charecter in js that is used to create new line inside a string. 
+							"\t" gives tab inside the string.
+							escape charecter is counted as single charecter.
+
+methods in string:	- methods donot change the original string that is in the memory rather it creates a new string with a new value.				- In js strings are immutable because immutability helps save memory by reusing the same string in memory instead of 				creating duplicates.
+			- can be applied in the console directly or by creating a new variable and storing the new value.		
+
+			1. str_name.toUpperCase() -> Converts to uppercase
+			e.g. 	let str1 = "Tony Stark";
+				let newstr1 = str1.toUpperCase();	method is used and is stored in a variable rather than directly applying 									it in the console
+				console.log(str1);
+				console.log(newstr1);
 				
+			2. str_name.trim()	-> Removes spaces from both ends.
+			3. str_name.trimStart()	-> Removes spaces from the start.
+			4. str_name.trimEnd()	-> Removes spaces from the end.
+			5. slice(start, end)	-> Extracts part of a string (supports negatives). and the ending index is excluded
+						e.g. let str = "xingho";
+						console.log(str.slice(0, 5)); // output xingh "o" will be excluded as it is 5th index
+
+			6. .concat()		-> concatinates two string.
+						e.g. let str1 = "hel";
+					     	let str2 = "lo";
+						console.log(str1.concat(str2));	// str2 is concatinated with str1.
+
+			7. .replace()		-> replaces the value in the string only once.
+						e.g. let str7 = "hello tony stark";
+						let newstr7 = str7.replace("tony stark", "don");
+						console.log(newstr7);
+
+			8. .replaceAll()	 -> all the matching values in the string will be replaced
 
 
-				2. str_name.trim()	 -> Removes spaces from both ends.
-				3. str_name.trimStart()	 -> Removes spaces from the start.
-				4. str_name.trimEnd()	 -> Removes spaces from the end.
-				5. slice(start, end)	 -> Extracts part of a string (supports negatives). and the ending index is excluded
-							e.g. let str = "xingho";
-							     console.log(str.slice(0, 5)); // output xingh "o" will be excluded as it is 5th index
-				6. .concat()		 -> concatinates two string.
-							e.g. let str1 = "hel";
-							     let str2 = "lo";
-								console.log(str1.concat(str2));	// str2 is concatinated with str1.
-				7. .replace()		 -> replaces the value in the string only once.
-							e.g. let str7 = "hello tony stark";
-							     let newstr7 = str7.replace("tony stark", "don");
-							     console.log(newstr7);
-				8. .replaceAll()	 -> all the matching values in the string will be replaced
 
 
 array:				arrays are used to store multiple values in a single variable.
