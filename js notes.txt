@@ -1,6 +1,8 @@
 console.log:		console.log is used to log(print) a message to the console.
 			e.g. -> console.log("hello world");
 
+****************************************************** VARIABLES ******************************************************
+
 Variables in JS:	Variables are containers for data. You can declare variables using var, let, or const.
 			e.g. -> Name = "Tony Stark";
 				designation = "iron Man";
@@ -47,6 +49,9 @@ Variable Rules:		1. Variable names are case sensitive; “a” & “A” is diff
  			4. Reserved words cannot be variable names.
 
 N.B. : "use strict" --> uses the newer verson syntax, function, modules for the javascript
+
+
+****************************************************** DATATYPES ******************************************************
 
 Data Types:		datatypes are classified on the basis of how we store them in memory and how we access them
 			1. Primitive datatypes:
@@ -95,40 +100,41 @@ N.B. : console.log(typeof value) --> gives us the datatype of values
 				a.1. arrays:	Arrays are ordered collections of values (elements) that can be of any data type, including 							other arrays or objects.
 
 
+****************************************************** CONVERSION IN DATATYPES ******************************************************
 
 Conversion in Datatypes:
-1. Implicit Conversion (Automatic):	Implicit type conversion in JavaScript (also called type coercion) happens automatically when JS tries 						to perform an operation on values of different data types. JavaScript automatically converts one data 						type to another when needed.
+1. Implicit Conversion (Automatic):	Implicit type conversion in JavaScript (also called type coercion) happens automatically when JS tries to perform an 					operation on values of different data types. JavaScript automatically converts one data type to another when needed.
 
-a. Implicit Conversion to String. Occurs when you use the + operator with a string.
-console.log("1" + 2);       // "text" + value = value --> string
-console.log(1 + "2");       // value + "text" = value --> string
-console.log("1" + 2 + 2);   // "text" + value + value --> string (after the "text" the values will not be added it will all converted to string)   
-console.log(1 + 2 + "2");   // value + value + "text" --> string (before the "text" the values will be added and then converted to string)
+a. Implicit Conversion to String:	Occurs when you use the + operator with a string.
+	console.log("1" + 2);       // "text" + value = value --> string
+	console.log(1 + "2");       // value + "text" = value --> string
+	console.log("1" + 2 + 2);   // "text" + value + value --> string (after the "text" the values will not be added it will all converted to string)   
+	console.log(1 + 2 + "2");   // value + value + "text" --> string (before the "text" the values will be added and then converted to string)
 
 
-b. Implicit Conversion to Number. Happens when operators expect numbers: -, *, /, %, comparison operators.
-console.log("5" - 2);
-console.log("5" - "2");
-console.log(2 - "5");
-console.log("5" * 2);
-console.log("5" * "2");
-console.log(5 * "2");
-console.log("5" / 2);
-console.log("5" / "2");
-console.log(5 / "2");
-console.log("5" % 2);
-console.log("5" % "2");
-console.log(5 % "2");
-console.log("abc" - 1);  // NaN (string cannot convert to number)
+b. Implicit Conversion to Number:	Happens when operators expect numbers: -, *, /, %, comparison operators.
+	console.log("5" - 2);
+	console.log("5" - "2");
+	console.log(2 - "5");
+	console.log("5" * 2);
+	console.log("5" * "2");
+	console.log(5 * "2");
+	console.log("5" / 2);
+	console.log("5" / "2");
+	console.log(5 / "2");
+	console.log("5" % 2);	
+	console.log("5" % "2");
+	console.log(5 % "2");
+	console.log("abc" - 1);  // NaN (string cannot convert to number)
 
 ***NB: JS converts "value" to number if -, *, /, %, comparison operators used. and string cannot convert to number
 
 c. Implicit Conversion to Boolean:	This happens when a value is used in a boolean context:
-					c.1. In if statements:	if ("") console.log("Yes"); // Won’t run → "" is false
-								if ("hello") console.log("Yes"); // Runs → "hello" is true
+	c.1. In if statements:		if ("") console.log("Yes"); // Won’t run → "" is false
+					if ("hello") console.log("Yes"); // Runs → "hello" is true
 
-					c.2. In logical operators:	console.log(0 || "Hello"); // "Hello"  (0 becomes false)
-									console.log(1 && "Hi");    // "Hi"     (1 becomes true)
+	c.2. In logical operators:	console.log(0 || "Hello"); // "Hello"  (0 becomes false)
+					console.log(1 && "Hi");    // "Hi"     (1 becomes true)
 
 Summary of Implicit Conversion		Operation			Conversion
 					"text" + value			value → string
@@ -138,7 +144,7 @@ Summary of Implicit Conversion		Operation			Conversion
 
 2. Explicit Conversion (Manual): 
 
-let valueInNumber1 = Number(score2);                                // this(Number) guarentes that the datatype of score2 which is string will 									    be number
+let valueInNumber1 = Number(score2);                                // this(Number) guarentes that the datatype of score2 which is string will be number
 console.log("type of valueInNumber1: " + typeof valueInNumber1);    // number datatype i.e score2 is converted from string to number
 console.log(valueInNumber1);                                        // 33 will be shown as number
 
@@ -227,8 +233,10 @@ console.log(stringNumber2);                                                 // 7
 console.log("type of stringNumber2: " + typeof stringNumber2);              // String
 
 
+****************************************************** MEMORY IN JS ******************************************************
+
 Memory in Js:
-1. Stack Memory (Fast memory):	Stack stores ONLY a reference(address / pointer) of the object when it's an object but stores the actual value 					only for primitives. Used for:
+1. Stack Memory (Fast memory):	Stack stores ONLY a reference(address / pointer) of the object when it's an object but stores the actual value only for 				primitives. Used for:
 				1. primitive data types(number, string, boolean, null, undefined, symbol, bigint)
 				2. Function execution context
 				3. Local variables
@@ -239,7 +247,7 @@ Memory in Js:
 				let y = "Lord"; 		// stored directly in stack
 
 
-2. Heap Memory(Big memory area): 	Heap stores the object itself i.e stores the actual values of object.Therefore, if two variables share 						the same reference, modifying the object through one variable will affect the same object in the heap, 						and the change is visible to all references.
+2. Heap Memory(Big memory area): 	Heap stores the object itself i.e stores the actual values of object.Therefore, if two variables share the same 					reference, modifying the object through one variable will affect the same object in the heap, and the change is 					visible to all references.
 				   	Used for:
 					Non-primitive types(Object, Array, Function)
 
@@ -254,10 +262,10 @@ Memory in Js:
 
 
 
+****************************************************** STRINGS ******************************************************
 
 
-
-strings:		In JavaScript, strings are sequences of characters used to represent text. They are one of the primitive data types and 			can be created using single quotes ('), double quotes ("), or backticks (`).
+strings:		In JavaScript, strings are sequences of characters used to represent text. They are one of the primitive data types and can be 				created using single quotes ('), double quotes ("), or backticks (`).
 
 creating a string:	let str1 = "Hello, World!"; 		// Double quotes
 			let str2 = 'JavaScript is fun!'; 	// Single quotes
@@ -276,7 +284,7 @@ properties in string:	1. String Length:		gives the length of the string.
 							e.g.	let text = "happybirthday";
 								console.log(indexOf(y));
 
-			4. templet literals:		Template literals are a feature in JavaScript that allows for easier string 									interpolation.
+			4. templet literals:		Template literals are a feature in JavaScript that allows for easier string 										interpolation.
 							syntax --> ${variable.key}
 							e.g.	const object = {
 									item: "pen";
@@ -287,11 +295,12 @@ properties in string:	1. String Length:		gives the length of the string.
 ** String interpolation is the process of embedding expressions inside string literals using template literals.	
 ** It allows you to insert variables, expressions, and function calls into strings dynamically.
 
-			4. escape charater:		"\n" is an escape charecter in js that is used to create new line inside a string. 
+			5. escape charater:		"\n" is an escape charecter in js that is used to create new line inside a string. 
 							"\t" gives tab inside the string.
 							escape charecter is counted as single charecter.
 
-methods in string:	- methods donot change the original string that is in the memory rather it creates a new string with a new value.				- In js strings are immutable because immutability helps save memory by reusing the same string in memory instead of 				creating duplicates.
+
+methods in string:	- methods donot change the original string that is in the memory rather it creates a new string with a new value.					- In js strings are immutable because immutability helps save memory by reusing the same string in memory instead of creating 				duplicates.
 			- can be applied in the console directly or by creating a new variable and storing the new value.		
 
 			1. str_name.toUpperCase() -> Converts to uppercase
@@ -321,6 +330,7 @@ methods in string:	- methods donot change the original string that is in the mem
 
 
 
+****************************************************** ARRAYS ******************************************************
 
 array:				arrays are used to store multiple values in a single variable.
 				** arrays are mutable in js as arrays are special type of objects and objects in JavaScript are stored by reference
@@ -343,6 +353,7 @@ array properties:		1. array_name.length		Returns the number of elements in the a
 array methods:
 
 
+****************************************************** OBJECTS IN JS ******************************************************
 
 objects in javascript:		fundamental datatypes used to store collection of data and more complex entities
 
