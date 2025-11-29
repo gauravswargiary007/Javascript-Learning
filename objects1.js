@@ -50,7 +50,7 @@ console.log(typeof animal.mysym);
 
 
 // creating an object uing new object
-const user = new Object();
+const user = new Object();                  // also known as singleton object
 user.name = "tony stark";
 user.email = "stark@gmail.com";
 user.address = "new york";
@@ -59,11 +59,22 @@ user.job = "avengers";
 console.log(user);
 
 // creating a function inside object
-user.greeting = function(){
+user.greeting = function(){                         // we have used the 'user' function and then we have created a function inside the 'user' object named greeting
     console.log("hello js user");
     console.log(`hello js user ${this.name}`);
 }
-console.log(user.greeting());
+user.greeting();                                    // function call
+// console.log(user.greeting());                    // sam --> function call
+
+const exampleObject = {
+    e1: "abcd",
+    e2: "efgh",
+    exampleFunction() {
+        console.log(`combining both the keys ${this.e1}${this.e2}`);
+    }
+}
+console.log(exampleObject);         // prints e1 and e2 and the function as it is not the values in the function
+exampleObject.exampleFunction();    // now FUNCTION IS CALLED here, this will print the values inside the function
 
 // creating an object inside object
 const regular = {
