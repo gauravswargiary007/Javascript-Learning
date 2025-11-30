@@ -355,7 +355,119 @@ array methods:
 
 ****************************************************** OBJECTS IN JS ******************************************************
 
-objects in javascript:		fundamental datatypes used to store collection of data and more complex entities
+objects in javascript:	fundamental datatypes used to store collection of data and more complex entities. An object is an unordered collection of 				key → value pairs (properties). Keys are strings or symbols; values can be anything (primitives, functions, other objects).
+
+creating objects:	1. creating an Object using object literals
+				const person = {
+    					name: "jon snow",
+    					email: "got@gmail.com",
+ 					address: "castelblack",
+    					age: 25,
+    					job: "lord commender"
+				};
+				console.log(person);
+
+			2. creating an object uing new object // also known as singleton object
+				const user = new Object();                  
+				user.name = "tony stark";
+				user.email = "stark@gmail.com";
+				user.address = "new york";
+				user.age = 40;
+				user.job = "avengers";
+				console.log(user);
+
+accessing objects:	1. using the dot '.' operator
+				console.log(person.name);           
+				console.log(person.email);    
+				console.log(person.address);
+				console.log(person.age);
+				console.log(person.job);
+
+			2. using the bracket notation --> it is used if we declare the key as string inside the object tough key is considered as 								  string inside object
+				const person2 = {
+    				"full name": "Captain America",     // now "full name" is impossible to access through '.' operator
+    				"job": "Avengers",                  // now "job" is accesseble using both '.' and 'bracket notation'
+    				address: "New York"
+				};
+
+				// console.log(person2."full name");    will give error as we cannot acces this using '.' operator
+				console.log(person2["full name"]);      // will need this bracket notation to access
+				console.log(person2["job"]);
+				console.log(person2.job);               // even tough job is described as "job" it is accessible by '.' operator and 										'bracket notation'
+				console.log(person2.address);
+				console.log(person2["address"]);        // even tough address is not described as "address" in object it is accessible using 									'.' and 'bracket notation'
+				console.log(typeof person2["full name"]);   // string
+				console.log(typeof person2.job);            // string
+				console.log(typeof person2.address);        // string
+				console.log(typeof person2);                // object
+
+
+**changing value using '.' operator
+  person.address = "king's landing"
+  console.log(person.address);
+
+**changing value using 'bracket notation' operator
+  person["full name"] = "TONY STARK"
+  console.log(person["full name"]);
+
+
+function inside object:	e.g.1.
+			const user = {				// object 'user' is created
+    				name: "TONY STARK",
+    				job: "Avenger",
+    				address: "New York"
+			}
+	
+			user.greeting = function(){             // we have used the 'user' function and then we have created a function inside the 'user' 								object named 'greeting'
+    				console.log("hello js user");				// function defination
+    				console.log(`hello js user ${this.name}`);		// function defination
+			}
+			user.greeting();                                    // function call
+			// console.log(user.greeting());                    // same --> function call
+
+
+			e.g.2.
+			const exampleObject = {
+    				e1: "abcd",
+    				e2: "efgh",
+    					exampleFunction() {
+        				console.log(`combining both the keys: ${this.e1}${this.e2}`);
+    					}
+				}
+				console.log(exampleObject);         // prints e1 and e2 and the function as it is not the values inside the function
+				exampleObject.exampleFunction();    // now FUNCTION IS CALLED here, this will print the values inside the function
+
+object inside object:	e.g. 
+			const regular = {                           // object is created named 'regular'
+    				email:  "regular@gmail.com",
+    					fullname: {                             // anotgher object is created named 'fullname' inside the object 'regular'
+        					firstname: "tony",
+        					lastname: "stark"  
+    						}
+					}
+					console.log(regular);                       // prints the whole object
+					console.log(regular.fullname);              // prints the object "fullname" inside the object regular
+					console.log(regular.fullname.lastname);     // prints the lastname inside the object fullname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************** FUNCTIONS IN JS ******************************************************
 
 fuctions:
 

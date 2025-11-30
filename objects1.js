@@ -32,6 +32,10 @@ console.log(person2["job"]);
 console.log(person2.job);               // even tough job is described as "job" it is accessible bby '.' operator and 'bracket notation'
 console.log(person2.address);
 console.log(person2["address"]);        // even tough address is not described as "address" in objectr it is accessible using '.' and bracket notation
+console.log(typeof person2["full name"]);   // string
+console.log(typeof person2.job);            // string
+console.log(typeof person2.address);        // string
+console.log(typeof person2);                // object
 
 // changing value using 'bracket notation' operator
 person["full name"] = "TONY STARK"
@@ -57,34 +61,6 @@ user.address = "new york";
 user.age = 40;
 user.job = "avengers";
 console.log(user);
-
-// creating a function inside object
-user.greeting = function(){                         // we have used the 'user' function and then we have created a function inside the 'user' object named greeting
-    console.log("hello js user");
-    console.log(`hello js user ${this.name}`);
-}
-user.greeting();                                    // function call
-// console.log(user.greeting());                    // sam --> function call
-
-const exampleObject = {
-    e1: "abcd",
-    e2: "efgh",
-    exampleFunction() {
-        console.log(`combining both the keys ${this.e1}${this.e2}`);
-    }
-}
-console.log(exampleObject);         // prints e1 and e2 and the function as it is not the values in the function
-exampleObject.exampleFunction();    // now FUNCTION IS CALLED here, this will print the values inside the function
-
-// creating an object inside object
-const regular = {
-    email:  "regular@gmail.com",
-    fullname: {
-        firstname: "tony",
-        lastname: "stark"  
-    }
-}
-console.log(regular);
-console.log(regular.fullname);
-console.log(regular.fullname.lastname);
+console.log(user.email);
+console.log(user["age"]);
 
