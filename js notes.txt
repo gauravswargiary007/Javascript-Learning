@@ -449,6 +449,13 @@ object inside object:	e.g.
 					console.log(regular.fullname);              // prints the object "fullname" inside the object regular
 					console.log(regular.fullname.lastname);     // prints the lastname inside the object fullname
 
+combining objects:	If two objects are created then they may have same key but if we plan to merge two objects, then the keys must be unique if we don’t 			want overwriting.
+			i.e. say
+			const obj1 = {1: "a", 2: "b"};
+			const obj2 = {1: "c", 2: "d"};
+			here we see that we have created two object but the key values are same and if we plan to merge them then the objects will overwrite
+			but if we donot merge them then has no problem.
+
 
 
 
