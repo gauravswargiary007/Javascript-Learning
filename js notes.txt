@@ -484,7 +484,15 @@ important methods in array objects:	1. Object.keys(array_name[index]);
 					3. Object.entries(array_name[index]);
 					4. array_name[index].hasOwnProperty("key");
 
-
+object de-structure:	Object destructuring allows you to extract properties from an object and store them in variables quickly and cleanly.
+			e.g:
+			const user = {
+   	 			name: "Thor",
+    				age: 1500
+			};
+			const name = user.name;
+			const age = user.age;
+			console.log(name, age);
 
 
 
