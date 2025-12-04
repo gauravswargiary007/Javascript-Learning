@@ -456,6 +456,36 @@ combining objects:	If two objects are created then they may have same key but if
 			here we see that we have created two object but the key values are same and if we plan to merge them then the objects will overwrite
 			but if we donot merge them then has no problem.
 
+			const obj3 = { 1: "a", 2: "b"};
+			const obj4 = { 3: "c", 4: "d"};
+			here we see that we have created different unique keys for every value in the objects now if we plane to merge the objects then they 			will get merged without overwriting.
+
+			1. combining using assign operator: Object.assign({}, object1, object2) {} --> target, obj2, obj3 --> source
+			const result = Object.assign({}, obj3, obj4); 
+
+			2. combining using spread operator: {...object1, ...object2, }
+			const result = {...obj3, ...obj4};
+
+
+Array of objects:	collection of objects in an array
+			const students = [
+    				{ id: 1, name: "John" },
+   	 			{ id: 2, name: "Amit" },
+    				{ id: 3, name: "Sara" }
+			];
+
+accessing array of objects:	console.log(array[0]);		--> the object at index 0
+				console.log(array[1].id);	--> the id value of the object at index 1
+				console.log(array[2].name);	--> te name value of the object at index 2
+
+
+important methods in array objects:	1. Object.keys(array_name[index]);
+					2. Object.values(array_name[index]);
+					3. Object.entries(array_name[index]);
+					4. array_name[index].hasOwnProperty("key");
+
+
+
 
 
 
