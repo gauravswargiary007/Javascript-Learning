@@ -1,8 +1,10 @@
-function myFunction() {
+// Create a Function (Function Declaration)
+
+function myFunction() {                     // function declaration
     console.log("hello world");
     console.log("the don is xingho");
 }
-myFunction();
+myFunction();                               // function call
 
 // functoin with parameters and arguments
 function addition(x, y) {
@@ -24,7 +26,7 @@ add();
 // function with parameter and without arguments
 function login(username) {
     if(username === undefined) {
-        console.log("plese engter username");
+        console.log("please enter username");
     } else {
         console.log(`${username} just loged in`);
     }
