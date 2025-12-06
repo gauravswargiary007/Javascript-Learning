@@ -485,36 +485,37 @@ important methods in array objects:	1. Object.keys(array_name[index]);
 					4. array_name[index].hasOwnProperty("key");
 
 object de-structure:	Object destructuring allows you to extract properties from an object and store them in variables quickly and cleanly.
+			syntax:	const {key1, key2, ...} = object_name;
 			e.g:
 			const user = {
    	 			name: "Thor",
-    				age: 1500
+    				hero_age: 1500
 			};
-			const name = user.name;
-			const age = user.age;
-			console.log(name, age);
+			const { name, hero_age } = user;
+			console.log(name, hero_age);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Renaming Variables While Destructuring:	
+			syntax: const {key1: newName1, key2: newName2, ...} = object_name;
+			const { name: hero, hero_age: age } = user;
+			console.log(hero, age);
 
 
 ****************************************************** FUNCTIONS IN JS ******************************************************
 
-fuctions:
+fuctions:		A function is a block of code designed to perform a specific task.
+			⭐Why use functions?
+			Reuse code
+			Make code cleaner
+			Reduce repetition
+			Improve modularity
+
+Create a Function:	AKA Function Declaration
+
+			function myFunction() {                     // function declaration
+				console.log("hello world");
+			    	console.log("the don is xingho");
+			}
+			myFunction();                               // function call
 
 Scope:				scope refers to the current context of execution, which determines the accessibility (visibility) of variables, functions, 				and objects.
 
