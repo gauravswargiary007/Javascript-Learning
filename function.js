@@ -33,18 +33,24 @@ function login(username) {
 } login();
 login("gaurav");
 
-// passing object to function
-const user = {
-    userName: "gaurav",
+// ********************* passing object to function *********************
+
+const user = {                                          // object created
+    userName: "Tony Stark",
     price: 899
 }
-
-function handelObject(anyObj) {         // function defination
-    console.log(`username is ${anyObj.userName} and price is ${anyObj.price}`);
+function handelObject(anyObjectName) {                  // function defination(anyObjectName) parameter: a temporary variable that receives data from whoever calls this function handlObject.
+    console.log(`username is ${anyObjectName.userName} and price is ${anyObjectName.price}`);
 }
+handelObject(user);                                       // function call --> passing the whole user object as an argument to the function and the value will be stored by anyObjectName.
 
-handelObject(user);
-handelObject({
-    userName: "sam",
-    price:5755
-})
+// as we used (x, y) in addition function and we passed the value in function call similarly we used anyObjectName in handleObjet function and passed the value i.e user object in function call
+
+// directly passing the object without creating extra object
+function newObject(storingValueObject) {
+    console.log(`hello ${storingValueObject.Name} your address is ${storingValueObject.address}`);
+};
+newObject({
+    Name: "Steve Rogers",
+    address: "guwahati"
+});
