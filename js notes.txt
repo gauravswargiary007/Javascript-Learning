@@ -517,36 +517,76 @@ Create a Function:	AKA Function Declaration
 			}
 			myFunction();                               // function call
 
-Scope:				scope refers to the current context of execution, which determines the accessibility (visibility) of variables, functions, 				and objects.
 
-				1. Global Scope:	Variables declared outside any function or block are in the global scope.
-							Accessible anywhere in the code.
+rest(...) operator:	When you don't know how many arguments will be passed to a function rest(...) operator is used.
+			e.g. 
+			function calculateCart(...num1) {                   	// here we used rest operator
+			    return num1;
+			}
+			console.log(calculateCart(321, 234, 876, 5467));    	// gives the value in array
 
-							e.g.	let globalVariable = "i am global variable";    // declared outside any function
-								function test() {
-								    console.log(globalVariable);        // accessible here inside a function
-								}
-								test();
+passing object to function:	*we can create an object and then pass it
+				const user = {                                  // object created
+    					userName: "Tony Stark",
+    					price: 899
+				}
+				function handelObject(anyObjectName) {        	// function defination--> (anyObjectName) parameter: a temporary variable 										that receives data from whoever calls this function handlObject.
+   	 			console.log(`username is ${anyObjectName.userName} and price is ${anyObjectName.price}`);
+				}
+				handelObject(user);     			// function call --> passing the whole user object as an argument to the 										function and the value will be stored by anyObjectName.
 
-				2. Function Scope:	Variables declared inside a function are only accessible within that function.
-							Created using var, let, or const.
 
-							e.g.	function myFunction() {
-								    let funcVar = "this is function variable";
-								    console.log(funcVar);       // only accessible within the scope of the function
-								}
-								myFunction();
-								console.log(funcVar);           // not accessible from outside the function
+				*we can directly pass the object in function call
+				function newObject(storingValueObject) {
+    					console.log(`hello ${storingValueObject.Name} your address is ${storingValueObject.address}`);
+				};
+				newObject({
+    					Name: "Steve Rogers",
+    					address: "guwahati"
+				});
 
-				3. Block Scope (ES6+):	Variables declared with let or const inside {} are block-scoped.
-							Acessible only within the blocks {}
 
-							e.g.	{
-								    let blockVar = "Inside block";
-								    const blockConst = "Also inside block";
-								    console.log(blockVar);
-								    console.log(blockConst);
-								}
+passing array to function:	*we can create an array and then pass it
+				const array1 = [1, 2, 3, 4, 5, 7];      // array created
+				function arrayfunction1(anyArray1) {    // function defination --> parameter anyArray1 will store value when function is 									called
+    					console.log(anyArray1[2]);      // will print the second element from the array
+				};
+				arrayfunction1(array1);                     // function call --> passing the whole array1
+
+				*we can directly pass the object in function call
+				function arrayfunction2(anyArray2) {        // function defination
+				    console.log(anyArray2[3]);
+				};
+				arrayfunction2([12, 343, 5, 876, 5432, 88, 7]);	
+
+Scope:			scope refers to the current context of execution, which determines the accessibility (visibility) of variables, functions, 				and objects.
+
+			1. Global Scope:	Variables declared outside any function or block are in the global scope. Accessible anywhere in the code.
+						e.g.	let globalVariable = "i am global variable";    // declared outside any function
+							function test() {
+							    console.log(globalVariable);        // accessible here inside a function
+							}
+							test();
+							console.log(globalVariable);
+
+			2. Function Scope:	Variables declared inside a function are only accessible within that function. 
+						Created using var, let, or const.
+
+						e.g.	function myFunction() {
+								let funcVar = "this is function variable";
+								console.log(funcVar);       	// only accessible within the scope of the function
+							}
+							myFunction();
+							console.log(funcVar);           	// not accessible from outside the function
+
+			3. Block Scope (ES6+):	Variables declared with let or const inside {} are block-scoped. Acessible only within the blocks {}
+						e.g.	{
+								let blockVar = "Inside block";
+								const blockConst = "Also inside block";
+								console.log(blockVar);
+								console.log(blockConst);
+							}
+
 
 *** nested scope:	e.g.	function one() {
 				    const username = "tony Stark";
