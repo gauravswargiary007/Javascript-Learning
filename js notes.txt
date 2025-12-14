@@ -559,6 +559,7 @@ passing array to function:	*we can create an array and then pass it
 				};
 				arrayfunction2([12, 343, 5, 876, 5432, 88, 7]);	
 
+
 Scope:			scope refers to the current context of execution, which determines the accessibility (visibility) of variables, functions, 				and objects.
 
 			1. Global Scope:	Variables declared outside any function or block are in the global scope. Accessible anywhere in the code.
@@ -597,6 +598,23 @@ Scope:			scope refers to the current context of execution, which determines the 
 				    two();
 				}
 				one(); 
+
+
+********************************** MINI HOISTING **********************************
+
+Hoisting is JavaScript’s default behavior of moving variable and function declarations to the top of their scope during the memory creation phase before code execution.
+
+console.log(addOne(5));             // memory is created then the execution is happend
+function addOne(num1) {             // Function Declaration ✅ (Fully Hoisted)
+    return num1 + 1;
+}
+
+
+console.log(addTwo(5));             // error occures Cannot access 'addTwo' before initialization
+const addTwo = function(num2) {
+    return num2 + 2;
+}
+
 
 This and arrow function:	# this is a special keyword in JavaScript that refers to the object that is executing the current function.
 				e.g. // this function
