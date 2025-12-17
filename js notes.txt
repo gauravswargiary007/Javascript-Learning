@@ -600,7 +600,7 @@ Scope:			scope refers to the current context of execution, which determines the 
 				one(); 
 
 
-********************************** MINI HOISTING **********************************
+************************************************ **********MINI HOISTING ************************************************************
 
 Hoisting is JavaScript’s default behavior of moving variable and function declarations to the top of their scope during the memory creation phase before code execution.
 
@@ -616,33 +616,31 @@ const addTwo = function(num2) {
 }
 
 
-This and arrow function:	# this is a special keyword in JavaScript that refers to the object that is executing the current function.
-				e.g. // this function
-					const user = {
-					    username: "tony stark",
-					    price: 999,
-					    welcomeMessage: function() {
-					        console.log(`${this.username}, welcome to the website`);        // here the user name is set to tony stark
-					        console.log(this);  // give the current context and the updated context i.e username changed to gaurav
-					    }
+This:			# this is a special keyword in JavaScript that refers to the object that is executing the current function.
+			e.g.	const user = {
+				    username: "tony stark",
+				    price: 999,
+				    welcomeMessage: function() {
+				        console.log(`${this.username}, welcome to the website`);        // here the user name is set to tony stark
+				        console.log(this);  			// give the current context of the object			    					    }
+				}
+				user.welcomeMessage();      	// username tony stark will print
+				user.username = "gaurav"	// usename is updated here
+				user.welcomeMessage();  	// updated username will be printed
+				console.log(this);  		// gives an empty object if in node environment and gives windows in browser
+
+
+arrow function:		# Arrow functions are a shorter syntax for writing functions, introduced in ES6 (ECMAScript 2015). 
+			Arrow functions don’t have their own this.
+				syntax	-> ()=> { function body }
+					-> const function_name = ()=> { function body }
+
+				e.g.	const myFunction3 = (num1, num2) =>{
+					    return num1 + num2
 					}
-					user.welcomeMessage();      // username tony stark will print
-					user.username = "gaurav"
-					user.welcomeMessage();      // will give the name gaurav
-					console.log(this);  // gives window
+					console.log(myFunction3(1,5));
 
-
-				# Arrow functions are a shorter syntax for writing functions, introduced in ES6 (ECMAScript 2015). 
-				  Arrow functions don’t have their own this.
-					syntax	-> ()=> { function body }
-						-> const function_name = ()=> { function body }
-
-					e.g.	const myFunction3 = (num1, num2) =>{
-						    return num1 + num2
-						}
-						console.log(myFunction3(1,5));
-
-				# Arrow implicit return -> return keyword is not used
+			# Arrow implicit return -> return keyword is not used
 					e.g.	const myFunction4 = (num1, num2) => num1 + num2
 						 console.log(myFunction4(9,5));
 

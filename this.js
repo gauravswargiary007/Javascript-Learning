@@ -1,15 +1,14 @@
 // this function
-
 const user = {
     username: "tony stark",
     price: 999,
     welcomeMessage: function() {
-        console.log(`${this.username}, welcome to the website`);        // here the user name is set to tony stark
-        console.log(this);  // give the current context and the updated context i.e username changed to gaurav
+        console.log(`hello ${this.username}, welcome to the website`);          // here the user name is set to tony stark
+        console.log("and now the current context of the object is: ", this);    // gives the current context of the object                                              // gives the current context
     }
 }
 user.welcomeMessage();      // username tony stark will print
-user.username = "gaurav"
-user.welcomeMessage();      // will give the name gaurav
+user.username = "gaurav"    // the username is updated in the object
+user.welcomeMessage();      // will give the updated username i.e gaurav
 
-console.log(this);  // gives window
+console.log(this);  // empty object as it is in node environment but gives window in browser
