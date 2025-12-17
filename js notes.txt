@@ -600,7 +600,7 @@ Scope:			scope refers to the current context of execution, which determines the 
 				one(); 
 
 
-************************************************ **********MINI HOISTING ************************************************************
+*********************************************************** MINI HOISTING ************************************************************
 
 Hoisting is JavaScript’s default behavior of moving variable and function declarations to the top of their scope during the memory creation phase before code execution.
 
@@ -635,6 +635,11 @@ arrow function:		# Arrow functions are a shorter syntax for writing functions, i
 				syntax	-> ()=> { function body }
 					-> const function_name = ()=> { function body }
 
+				e.g.	let greetings = () => {                    	// arrow fuction is defined and is stored in a variable "greetings"
+    					console.log("WE HAVE USED ARROW FUNCTION");	// function body
+					}
+					greetings();                                    // function call
+	
 				e.g.	const myFunction3 = (num1, num2) =>{
 					    return num1 + num2
 					}
@@ -642,8 +647,33 @@ arrow function:		# Arrow functions are a shorter syntax for writing functions, i
 
 			# Arrow implicit return -> return keyword is not used
 					e.g.	const myFunction4 = (num1, num2) => num1 + num2
-						 console.log(myFunction4(9,5));
+						const myFunction5 = (num1, num2) => (num1 + num2)
+						console.log(myFunction4(9,5));
+						console.log(myFunction5(25,5));
 
+** NB: we can use the paranthesis () in here it is optional
+
+Arrow Function with Objects:	Since we know we define objects within {} braces now when you use curly braces {}, JavaScript treats them as a function 				body, not an object. therefor in implicit we use the curlu braces inside the braces ({}).
+				and if explicit the we can return the object explicitely using the curly braces{}.
+
+				e.g.	const getUser = () => { name: "Tony" };          
+					this will give us undefined as {} will be treated as function not obect in js 
+
+					const getUser = () => { name: "Tony", age: 25 }; 
+					this will also give us an error in the syntex
+
+					*** correct way to implicit return
+					const getUser = () => ({ name: "Tony", age: 25, address: "Guwahati" });     
+					console.log(getUser());
+
+					*** correct way to explicit return
+					const getUser2 = () => {
+					    return { name: "Tony", age: 25, address: "Guwahati" };
+					}
+					console.log(getUser2());
+
+
+*********************************************************** OPERATORS ************************************************************
 
 operators:	operators are used to perform different types of mathematical and logical computations.
 		1. Arithmetic operator: Arithmetic Operators are used to perform arithmetic on numbers:
