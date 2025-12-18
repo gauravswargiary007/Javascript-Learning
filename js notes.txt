@@ -662,15 +662,32 @@ Arrow Function with Objects:	Since we know we define objects within {} braces no
 					const getUser = () => { name: "Tony", age: 25 }; 
 					this will also give us an error in the syntex
 
-					*** correct way to implicit return
+					✅ correct way to implicit return
 					const getUser = () => ({ name: "Tony", age: 25, address: "Guwahati" });     
 					console.log(getUser());
 
-					*** correct way to explicit return
+					✅ correct way to explicit return
 					const getUser2 = () => {
 					    return { name: "Tony", age: 25, address: "Guwahati" };
 					}
 					console.log(getUser2());
+
+IIFE:			Stands for immedietly Invoked Function Expression. Used to immedietly execute the program as well as to overcome from the globle 			scope pollution.
+			Variables inside IIFE cannot be accessed outside.
+			e.g.	(function () {
+    					let secret = "hidden";
+    					console.log(secret);
+				})();
+				console.log(secret);
+
+
+*********************************************************** HOW JS EXECUTES ************************************************************
+Execution context
+call stack
+
+
+
+
 
 
 *********************************************************** OPERATORS ************************************************************
